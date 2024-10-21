@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #05171e;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 1980px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 64px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#album {
+  gap: 36px;
+}
+
+header {
+  background-color: #082029;
+  width: 100%;
+  min-height: 100px;
+  max-height: 100px;
+  padding: 8px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  font-size: 36px;
+}
+
+.bookStoreIcon {
+  width: 84px;
+  height: auto;
+}
+
+span {
+  color: rgb(230, 97, 88);
+}
+
+header > div > b {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+header > div > b > p.secondaryText {
+  font-size: 18px;
+}
+
+.book {
+  width: 500px;
+  background-color: #0d3240;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+  padding: 24px;
+}
+
+h2 {
+  color: #ffffff;
+  text-align: center;
+}
+
+.seperator {
+  height: 3px;
+  width: 100%;
+  background-color: #6faec6;
+  margin: 12px 0px;
+}
+
+.bookImg {
+  width: 300px;
+  height: auto;
+}
+
+div {
+  color: #ffffff;
+}
+
+#price {
+  color: rgb(230, 97, 88);
+}
+
+.bookPrice {
+  display: flex;
+  gap: 8px;
+}
+
+.priceAndLikes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 32px;
+}
+
+.bookLikes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.hearth {
+  cursor: pointer;
+  font-size: 36px !important;
+  color: grey; /* Standardmäßig ein graues Herz */
+}
+
+.hearth:hover {
+scale: 1.05;
+}
+
+.hearth.liked {
+  color: red; /* Rotes Herz, wenn geliked */
+}
+
+table {
+  margin-top: 12px;
+  width: 100%;
+}
+
+.commentSectionHeadline {
+  width: 100%;
+}
+
+.commentSection {
+  width: 100%;
+  height: 180px;
+  margin: 12px 0px;
+  overflow-x: hidden;
+}
+
+.commentSection > p {
+  padding: 4px 0px;
+}
+
+.commentSectionWrapper {
+  width: 100%;
+  text-align: start;
+}
+
+input {
+  display: inline-block;
+}
+
+.commentInput {
+  width: 75%;
+  height: 25px;
+  border: 1px solid #6faec6;
+  background-color: #1b6884;
+  color: #ffffff;
+  padding: 2px;
+}
+
+.commentSectionInput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  padding: 4px;
+}
+
+::placeholder {
+  padding: 2px;
+  color: #ffffff;
+  opacity: 0.5; /* Firefox */
+}
+
+.commentButton {
+  color: #ffffff;
+  background-color: #0d3240;
+  border: 1px solid #6faec6;
+  height: 25px;
+  width: 20%;
+  padding: 2px;
+}
+
+.commentButton:hover {
+  cursor: pointer;
+  scale: 1.05;
+}
+
+footer {
+  background-color: #082029;
+  width: 100%;
+  min-height: 100px;
+  max-height: 100px;
+  padding: 8px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
