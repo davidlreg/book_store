@@ -10,25 +10,31 @@ function renderBooksTemplate() {
   for (let i = 0; i < books.length; i++) {
     contentRef.innerHTML += booksTemplate(i);
   }
-  
+
   dataBooks();
 }
 
 function dataBooks() {
-  // Für jedes Buch die Kommentare und Like-Status anzeigen
+  booksComments();
+  booksLikes();
+}
+
+function booksComments() {
   for (let i = 0; i < books.length; i++) {
     let book = books[i];
     let bookCommentsSection = document.getElementById(`commentSection-${i}`);
 
-    // Setzt die Kommentare zurück
     bookCommentsSection.innerHTML = "";
 
-    // Kommentare hinzufügen
     for (let j = 0; j < book.comments.length; j++) {
       bookCommentsSection.innerHTML += `<p>[${book.comments[j].name}] :</p><p><i>${book.comments[j].comment}</i></p>`;
     }
+  }
+}
 
-    // Liked-Status für das Herz anzeigen
+function booksLikes() {
+  for (let i = 0; i < books.length; i++) {
+    let book = books[i];
     let likeHeart = document.getElementById(`likeHeart-${i}`);
     let likesCount = document.getElementById(`likes-${i}`);
 
@@ -38,35 +44,31 @@ function dataBooks() {
       likeHeart.classList.remove("liked");
     }
 
-    // Event Listener für das Herz zum Liken
     likeHeart.addEventListener("click", function () {
-      toggleLike(i); // Verwende das aktuelle Buch in der Schleife
+      toggleLike(i);
     });
 
-    // Aktualisiert die Anzahl der Likes
     likesCount.innerHTML = book.likes;
   }
 }
 
 function toggleLike(bookIndex) {
-  let book = books[bookIndex]; // Buch-Array verwenden
+  let book = books[bookIndex];
   let likeHeart = document.getElementById(`likeHeart-${bookIndex}`);
   let likesCount = document.getElementById(`likes-${bookIndex}`);
 
   if (book.liked) {
     book.likes--;
     book.liked = false;
-    likeHeart.classList.remove("liked"); // Herz grau machen
+    likeHeart.classList.remove("liked");
   } else {
     book.likes++;
     book.liked = true;
-    likeHeart.classList.add("liked"); // Herz rot machen
+    likeHeart.classList.add("liked");
   }
 
-  // Likes im HTML aktualisieren
   likesCount.innerHTML = book.likes;
 
-  // Daten speichern
   saveData();
 }
 
@@ -79,16 +81,12 @@ function addComment(bookIndex) {
     return;
   }
 
-  // Kommentar im DOM anzeigen
   commentRef.innerHTML += `<p><b>[USER] :</b></p><p><i>${commentInput}</i></p>`;
 
-  // Kommentar zum Buch-Daten-Array hinzufügen
   books[bookIndex].comments.push({ name: "USER", comment: commentInput });
 
-  // Eingabefeld leeren
   document.getElementById(`commentInput-${bookIndex}`).value = "";
 
-  // Daten speichern
   saveData();
 }
 
